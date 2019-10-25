@@ -6,8 +6,8 @@
             <h1 class="page-header">CRUD Laravel y VUEjs</h1>
         </div>
         <div class="col-md-7">
-            <a href="#" class="btn btn-primary pull-right">Nueva tarea</a>
-            <table class="table table-hover table-sprite">
+            <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">Nueva tarea</a>
+            <table class="table table-hover table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -22,14 +22,16 @@
                         <td width="10px">@{{ keep.id }}</td>
                         <td>@{{ keep.keep }}</td>
                         <td width='10px'>
-                            <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="#" v-on:click.prevent="editKeep(keep)" class="btn btn-warning btn-sm">Editar</a>
                         </td>
                         <td width='10px'>
-                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="#" v-on:click.prevent="deleteKeep(keep)" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            @include('create')
+            @include('edit')
         </div>
         <div class="col-md-5">
             <pre>
